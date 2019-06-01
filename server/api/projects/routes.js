@@ -9,6 +9,7 @@ const {check_fields} = require('./middleware')
 
 //C
 router.post('/', async (req, res) => {
+    //returns all projects
     try {
         const project = await db.add(req.body)
         project
@@ -21,6 +22,7 @@ router.post('/', async (req, res) => {
 })
 //R
 router.get('/:id', check_fields, async (req, res) => {
+    //returns project object with specified id with related actions
     try {
         const project = await db.get_project(req.params.id)
         project
